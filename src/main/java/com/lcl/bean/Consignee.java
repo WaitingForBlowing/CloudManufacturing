@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class Consignee extends User{
+import java.io.Serializable;
+
+public class Consignee extends User implements Serializable {
 
     private String address;
 

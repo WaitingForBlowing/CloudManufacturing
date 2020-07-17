@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class Equipment {
+import java.io.Serializable;
+
+public class Equipment implements Serializable {
 
     private int etid;
     private int oid;

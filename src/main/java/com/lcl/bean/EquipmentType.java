@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class EquipmentType {
+import java.io.Serializable;
+
+public class EquipmentType implements Serializable {
 
     private int typeId;
     private String typeName;

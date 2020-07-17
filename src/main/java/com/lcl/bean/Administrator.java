@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class Administrator {
+import java.io.Serializable;
+
+public class Administrator implements Serializable {
 
     private int aid;
     private String account;

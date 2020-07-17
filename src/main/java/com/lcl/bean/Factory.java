@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class Factory {
+import java.io.Serializable;
+
+public class Factory implements Serializable {
 
     private int uid;
     private int factoryId;

@@ -1,6 +1,8 @@
 package com.lcl.bean;
 
-public class ProductType {
+import java.io.Serializable;
+
+public class ProductType implements Serializable {
 
     private int typeId;
     private String typeName;

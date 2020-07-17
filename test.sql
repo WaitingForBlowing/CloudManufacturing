@@ -60,9 +60,9 @@ CREATE TABLE `equipment`  (
   INDEX `equiment_type`(`etId`) USING BTREE,
   INDEX `equipment_order_key`(`oid`) USING BTREE,
   INDEX `equipment_factory_key`(`fid`) USING BTREE,
-  CONSTRAINT `equiment_type` FOREIGN KEY (`etId`) REFERENCES `equipment_type` (`typeId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `equipment_factory_key` FOREIGN KEY (`fid`) REFERENCES `factory` (`factoryId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `equipment_order_key` FOREIGN KEY (`oid`) REFERENCES `order` (`orderId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `equiment_equimentType_key` FOREIGN KEY (`etId`) REFERENCES `equipment_type` (`typeId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `equipment_factory_key` FOREIGN KEY (`fid`) REFERENCES `factory` (`factoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `equipment_order_key` FOREIGN KEY (`oid`) REFERENCES `order` (`orderId`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -86,8 +86,8 @@ CREATE TABLE `factory`  (
   `factoryInfo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `factoryStatus` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`factoryId`) USING BTREE,
-  INDEX `maneger_factory_key`(`uid`) USING BTREE,
-  CONSTRAINT `maneger_factory_key` FOREIGN KEY (`uid`) REFERENCES `manager` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  INDEX `factory_maneger_key`(`uid`) USING BTREE,
+  CONSTRAINT `factory_maneger_key` FOREIGN KEY (`uid`) REFERENCES `manager` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -119,8 +119,8 @@ CREATE TABLE `order`  (
   PRIMARY KEY (`orderId`) USING BTREE,
   INDEX `order_product_key`(`pId`) USING BTREE,
   INDEX `consignee_order_key`(`consigneeId`) USING BTREE,
-  CONSTRAINT `consignee_order_key` FOREIGN KEY (`consigneeId`) REFERENCES `consignee` (`userId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `order_product_key` FOREIGN KEY (`pId`) REFERENCES `product` (`productId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `order_consignee_key` FOREIGN KEY (`consigneeId`) REFERENCES `consignee` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `order_product_key` FOREIGN KEY (`pId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -135,7 +135,7 @@ CREATE TABLE `product`  (
   `productSpecification` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`productId`) USING BTREE,
   INDEX `product_type`(`ptId`) USING BTREE,
-  CONSTRAINT `product_type` FOREIGN KEY (`ptId`) REFERENCES `product_type` (`typeId`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `product_productType_key` FOREIGN KEY (`ptId`) REFERENCES `product_type` (`typeId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
