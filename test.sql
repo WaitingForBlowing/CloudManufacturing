@@ -60,7 +60,7 @@ CREATE TABLE `equipment`  (
   INDEX `equiment_type`(`etId`) USING BTREE,
   INDEX `equipment_order_key`(`oid`) USING BTREE,
   INDEX `equipment_factory_key`(`fid`) USING BTREE,
-  CONSTRAINT `equiment_equimentType_key` FOREIGN KEY (`etId`) REFERENCES `equipment_type` (`typeId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `equipment_equipmentType_key` FOREIGN KEY (`etId`) REFERENCES `equipment_type` (`typeId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `equipment_factory_key` FOREIGN KEY (`fid`) REFERENCES `factory` (`factoryId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `equipment_order_key` FOREIGN KEY (`oid`) REFERENCES `order` (`orderId`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;

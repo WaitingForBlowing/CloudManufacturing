@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcl.dao.EquipmentDao">
+    <select id="findAll" resultType="Equipment">
+        select * from equipment;
+    </select>
+    <select id="findByEquipmentId" parameterType="int" resultType="Equipment">
+        select * from equipment where equipmentId=#{equipmentId};
+    </select>
+    <select id="findByEquipmentTypeId" parameterType="int" resultType="Equipment">
+        select * from equipment where equipmentId=#{ptId};
+    </select>
+    <insert id="insert" parameterType="Equipment">
+        insert into equipment(etId, oid, fid, equipmentId, equipmentSpecification, equipmentStatus, rentalStatus) VALUES (#{etId},#{oid},#{fid},#{equipmentId},#{equipmentSpecification},#{equipmentStatus},#{rentalStatus});
+    </insert>
+    <update id="update" parameterType="Equipment">
+        update equipment set etId=#{etId},oid=#{oid},fid=#{fid},equipmentSpecification=#{equipmentSpecification},equipmentStatus=#{equipmentStatus},rentalStatus=#{rentalStatus} where equipmentId=#{equipmentId};
+    </update>
+    <delete id="deleteByEquipmentId" parameterType="int">
+        delete from equipment where equipmentId=#{equipmentId}
+    </delete>
+</mapper>

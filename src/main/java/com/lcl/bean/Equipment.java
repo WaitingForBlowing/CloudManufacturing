@@ -76,4 +76,18 @@ public class Equipment implements Serializable {
     public void setOid(int oid) {
         this.oid = oid;
     }
+
+    @Override
+    public String toString() {
+        return "Equipment{" +
+                "etid=" + etid +
+                ", oid=" + oid +
+                ", fid=" + fid +
+                ", equipmentId=" + equipmentId +
+                ", equipmentName='" + equipmentName + '\'' +
+                ", equipmentSpecification='" + equipmentSpecification + '\'' +
+                ", equipmentStatus='" + equipmentStatus + '\'' +
+                ", rentalStatus='" + rentalStatus + '\'' +
+                '}';
+    }
 }

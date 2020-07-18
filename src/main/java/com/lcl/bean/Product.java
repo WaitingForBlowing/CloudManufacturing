@@ -49,4 +49,15 @@ public class Product implements Serializable {
     public void setProductSpecification(String productSpecification) {
         this.productSpecification = productSpecification;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", ptId=" + ptId +
+                ", productName='" + productName + '\'' +
+                ", productInfo='" + productInfo + '\'' +
+                ", productSpecification='" + productSpecification + '\'' +
+                '}';
+    }
 }

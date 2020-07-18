@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcl.dao.OrderDao">
+    <select id="findAll" resultType="Order">
+        select * from `order`;
+    </select>
+    <select id="findByOrderId" resultType="Order" parameterType="int">
+        select * from `order` where orderId=#{orderId};
+    </select>
+    <insert id="insert" parameterType="Order">
+        insert into `order`(orderId, pId, productAmount, acomplishDeadline, tenderDeadline, consigneeId) VALUES (#{orderId},#{pid},#{productAmount},#{acomplishDeadline},#{tenderDeadline},#{consigneeId});
+    </insert>
+    <update id="update" parameterType="Order">
+        update `order` set orderId=#{orderId},pId=#{pid},productAmount=#{productAmount},acomplishDeadline=#{acomplishDeadline},tenderDeadline=#{tenderDeadline},consigneeId=#{consigneeId} where orderId=#{orderId};
+    </update>
+    <delete id="deleteByOrderId" parameterType="Order">
+        delete from `order` where orderId=#{orderId};
+    </delete>
+</mapper>

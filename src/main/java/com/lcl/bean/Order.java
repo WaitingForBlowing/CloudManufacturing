@@ -68,4 +68,17 @@ public class Order implements Serializable {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", pid=" + pid +
+                ", productAmount=" + productAmount +
+                ", accomplishDeadline=" + accomplishDeadline +
+                ", tenderDeadline=" + tenderDeadline +
+                ", consigneeId=" + consigneeId +
+                ", orderStatus='" + orderStatus + '\'' +
+                '}';
+    }
 }

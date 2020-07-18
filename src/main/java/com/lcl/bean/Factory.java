@@ -49,4 +49,15 @@ public class Factory implements Serializable {
     public void setFactoryStatus(String factoryStatus) {
         this.factoryStatus = factoryStatus;
     }
+
+    @Override
+    public String toString() {
+        return "Factory{" +
+                "uid=" + uid +
+                ", factoryId=" + factoryId +
+                ", factoryName='" + factoryName + '\'' +
+                ", factoryInfo='" + factoryInfo + '\'' +
+                ", factoryStatus='" + factoryStatus + '\'' +
+                '}';
+    }
 }

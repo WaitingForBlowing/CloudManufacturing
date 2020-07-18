@@ -4,4 +4,8 @@ import java.io.Serializable;
 
 public class Manager extends User implements Serializable {
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

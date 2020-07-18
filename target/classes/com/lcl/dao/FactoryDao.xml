@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcl.dao.FactoryDao">
+    <select id="findAll" resultType="Factory">
+        select * from factory;
+    </select>
+    <select id="findByUid" parameterType="int" resultType="Factory">
+        select * from factory where uid=#{uid};
+    </select>
+    <select id="findByInfo" resultType="Factory">
+        select * from factory where factoryName=#{info} or factoryInfo like '%${info}%' or factoryStatus=#{info};
+    </select>
+    <update id="update" parameterType="Factory">
+        update factory set uid=#{uid},factoryName=#{factoryName},factoryInfo=#{factoryInfo},factoryStatus=#{factoryStatus} where factoryId=#{factoryId};
+    </update>
+</mapper>
