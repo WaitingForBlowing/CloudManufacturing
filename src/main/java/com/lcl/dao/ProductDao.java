@@ -51,4 +51,9 @@ public interface ProductDao {
      */
     void deleteByProductId(int productId);
 
+    /**
+     * 根据产品名称删除产品
+     * @param productName
+     */
+    void deleteByProductName(String productName);
 }

@@ -27,6 +27,12 @@ public interface ConsigneeDao {
     void deleteById(int userId);
 
     /**
+     * 根据账号删除经销商
+     * @param account
+     */
+    void deleteByAccount(String account);
+
+    /**
      * 查询所有
      * @return 经销商列表
      */

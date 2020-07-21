@@ -58,7 +58,7 @@ public class ProductTypeDaoTest {
 
     @Test
     public void testFindByTypeName(){
-        List<ProductType> productTypeList = productTypeDao.findByTypeName("棉织品");
+        List<ProductType> productTypeList = productTypeDao.findByTypeName("棉制品");
         for(ProductType productType:productTypeList){
             System.out.println(productType);
         }

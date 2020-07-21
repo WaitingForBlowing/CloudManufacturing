@@ -43,4 +43,10 @@ public interface ProductTypeDao {
      * @param typeId 类型id
      */
     void deleteByTypeId(int typeId);
+
+    /**
+     * 根据类型名称删除
+     * @param typeName
+     */
+    void deleteByTypeName(String typeName);
 }

@@ -18,6 +18,9 @@
     <delete id="deleteById" parameterType="int">
         delete from consignee where userId=#{userId};
     </delete>
+    <delete id="deleteByAccount" parameterType="String">
+        delete from consignee where account=#{account};
+    </delete>
     <update id="update" parameterType="Consignee">
         update consignee set userId=#{userId},account=#{account},password=#{password},name=#{name},email=#{email},
                              type=#{type},address=#{address} where userId=#{userId};

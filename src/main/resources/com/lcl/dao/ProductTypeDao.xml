@@ -21,4 +21,7 @@
     <delete id="deleteByTypeId" parameterType="int">
         delete from product_type where typeId=#{typeId};
     </delete>
+    <delete id="deleteByTypeName" parameterType="String">
+        delete from product_type where typeName=#{typeName};
+    </delete>
 </mapper>

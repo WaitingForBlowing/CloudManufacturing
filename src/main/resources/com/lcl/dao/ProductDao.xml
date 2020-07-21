@@ -24,4 +24,7 @@
     <delete id="deleteByProductId" parameterType="int">
         delete from product where productId=#{productId};
     </delete>
+    <delete id="deleteByProductName" parameterType="String">
+        delete from product where productName=#{productName};
+    </delete>
 </mapper>

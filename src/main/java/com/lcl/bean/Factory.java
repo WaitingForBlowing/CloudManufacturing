@@ -10,6 +10,13 @@ public class Factory implements Serializable {
     private String factoryInfo;
     private String factoryStatus;
 
+    public Factory(int uid, String factoryName, String factoryInfo, String factoryStatus) {
+        this.uid = uid;
+        this.factoryName = factoryName;
+        this.factoryInfo = factoryInfo;
+        this.factoryStatus = factoryStatus;
+    }
+
     public int getUid() {
         return uid;
     }

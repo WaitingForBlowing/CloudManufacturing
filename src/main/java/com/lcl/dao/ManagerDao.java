@@ -28,6 +28,12 @@ public interface ManagerDao {
     void deleteById(int userId);
 
     /**
+     * 根据账号删除云工厂管理员
+     * @param account
+     */
+    void deleteByAccount(String account);
+
+    /**
      * 查询所有
      * @return 云工厂管理员列表
      */

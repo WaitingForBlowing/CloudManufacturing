@@ -12,6 +12,18 @@ public class User implements Serializable {
     private String type;
     private int userId;
 
+    public User() {
+    }
+
+    public User(String account, String password, String name, String email, String tel, String type) {
+        this.account = account;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.tel = tel;
+        this.type = type;
+    }
+
     public String getAccount() {
         return account;
     }

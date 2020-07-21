@@ -18,6 +18,9 @@
     <delete id="deleteById" parameterType="int">
         delete from manager where userId=#{userId};
     </delete>
+    <delete id="deleteByAccount" parameterType="String">
+        delete from manager where account=#{account};
+    </delete>
     <update id="update" parameterType="Manager">
         update manager set userId=#{userId},account=#{account},password=#{password},name=#{name},email=#{email},
                            type=#{type},tel=#{tel} where userId=#{userId};

@@ -31,4 +31,16 @@ public interface FactoryDao {
      * @param factory 更新的工厂
      */
     void update(Factory factory);
+
+    /**
+     * 新增工厂
+     * @param factory
+     */
+    void insert(Factory factory);
+
+    /**
+     * 根据工厂名称删除工厂
+     * @param factoryName
+     */
+    void deleteByFactoryName(String factoryName);
 }
