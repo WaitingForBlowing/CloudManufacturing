@@ -9,8 +9,14 @@
     <select id="findByUid" parameterType="int" resultType="Factory">
         select * from factory where uid=#{uid};
     </select>
-    <select id="findByInfo" resultType="Factory">
+    <select id="findByFactoryId" parameterType="int" resultType="Factory">
+        select * from factory where factoryId=#{factoryId};
+    </select>
+    <select id="findByInfo" parameterType="String" resultType="Factory">
         select * from factory where factoryName=#{info} or factoryInfo like '%${info}%' or factoryStatus=#{info};
+    </select>
+    <select id="findByFactoryName" resultType="Factory" parameterType="String">
+        select * from factory where factoryName=#{factoryName};
     </select>
     <update id="update" parameterType="Factory">
         update factory set uid=#{uid},factoryName=#{factoryName},factoryInfo=#{factoryInfo},factoryStatus=#{factoryStatus} where factoryId=#{factoryId};

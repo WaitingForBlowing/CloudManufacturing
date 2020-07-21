@@ -24,7 +24,14 @@ public interface EquipmentDao {
      * @param etId 设备类别id
      * @return 设备列表
      */
-    List<Product> findByEquipmentTypeId(int etId);
+    List<Equipment> findByEquipmentTypeId(int etId);
+
+    /**
+     * 根据信息模糊查询
+     * @param info
+     * @return
+     */
+    List<Equipment> findByInfo(String info);
 
     /**
      * 新增设备
@@ -43,4 +50,10 @@ public interface EquipmentDao {
      * @param equipmentId 设备id
      */
     void deleteByEquipmentId(int equipmentId);
+
+    /**
+     * 根据设备名称删除设备
+     * @param equipmentName
+     */
+    void deleteByEquipmentName(String equipmentName);
 }

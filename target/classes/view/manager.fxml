@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.lcl.controller.ManagerController"
-            prefHeight="680.0" prefWidth="1200.0">
-<children>
-    <Button fx:id="close" layoutX="1152.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="51.0" prefWidth="48.0" />
-</children>
+<AnchorPane fx:id="background" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcl.controller.ManagerController">
+    <children>
+        <Button fx:id="close" layoutX="1152.0" mnemonicParsing="false" onMouseClicked="#closeStage" prefHeight="51.0" prefWidth="48.0" />
+        <VBox fx:id="sideBar" prefHeight="680.0" prefWidth="130.0">
+            <children>
+                <Label fx:id="icon" alignment="CENTER" prefHeight="85.0" prefWidth="85.0" text="云工厂">
+                    <font>
+                        <Font size="19.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="23.0" />
+                    </VBox.margin>
+                </Label>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="我的工厂">
+                    <VBox.margin>
+                        <Insets top="40.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="订单管理">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <AnchorPane fx:id="table" layoutX="141.0" layoutY="53.0" prefHeight="628.0" prefWidth="1059.0">
+        </AnchorPane>
+    </children>
 </AnchorPane>

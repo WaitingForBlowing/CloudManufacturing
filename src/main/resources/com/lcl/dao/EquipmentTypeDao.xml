@@ -20,4 +20,7 @@
     <delete id="deleteByTypeId" parameterType="int">
         delete from equipment_type where typeId=#{typeId};
     </delete>
+    <delete id="deleteByTypeName" parameterType="String">
+        delete from equipment_type where typeName=#{typeName};
+    </delete>
 </mapper>

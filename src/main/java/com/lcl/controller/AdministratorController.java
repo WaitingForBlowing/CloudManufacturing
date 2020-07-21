@@ -62,12 +62,18 @@ public class AdministratorController implements Initializable {
         table.getChildren().add(root);
     }
 
-    public void equipmentAdmin(){
-        System.out.println("equipmentAdmin");
+    public void equipmentAdmin() throws IOException {
+        table.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/adminEquipment.fxml"));
+        Parent root = loader.load();
+        table.getChildren().add(root);
     }
 
-    public void equipmentTypeAdmin(){
-        System.out.println("equipmentTypeAdmin");
+    public void equipmentTypeAdmin() throws IOException {
+        table.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/adminEquipmentType.fxml"));
+        Parent root = loader.load();
+        table.getChildren().add(root);
     }
 
     @Override

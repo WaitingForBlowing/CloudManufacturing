@@ -1,10 +1,10 @@
-package com.lcl.bean;
+package com.lcl.controller.temp;
 
 import java.io.Serializable;
 
-public class Equipment implements Serializable {
+public class EquipmentTemp implements Serializable {
 
-    private int etId;
+    private int etid;
     private int oid;
     private int fid;
     private int equipmentId;
@@ -12,19 +12,28 @@ public class Equipment implements Serializable {
     private String equipmentSpecification;
     private String equipmentStatus;
     private String rentalStatus;
+    private String equipmentTypeName;
+    private String factoryName;
 
-    public Equipment(int etId, String equipmentName, String equipmentSpecification) {
-        this.etId = etId;
+    public EquipmentTemp(int etid,int oid,int fid,int equipmentId,String equipmentName, String equipmentSpecification, String equipmentStatus, String rentalStatus, String equipmentTypeName, String factoryName) {
+        this.etid = etid;
+        this.oid=oid;
+        this.fid = fid;
+        this.equipmentId=equipmentId;
         this.equipmentName = equipmentName;
         this.equipmentSpecification = equipmentSpecification;
+        this.equipmentStatus = equipmentStatus;
+        this.rentalStatus = rentalStatus;
+        this.equipmentTypeName = equipmentTypeName;
+        this.factoryName = factoryName;
     }
 
-    public int getEtId() {
-        return etId;
+    public int getEtid() {
+        return etid;
     }
 
-    public void setEtId(int etId) {
-        this.etId = etId;
+    public void setEtid(int etid) {
+        this.etid = etid;
     }
 
     public int getOid() {
@@ -83,17 +92,19 @@ public class Equipment implements Serializable {
         this.rentalStatus = rentalStatus;
     }
 
-    @Override
-    public String toString() {
-        return "Equipment{" +
-                "etId=" + etId +
-                ", oid=" + oid +
-                ", fid=" + fid +
-                ", equipmentId=" + equipmentId +
-                ", equipmentName='" + equipmentName + '\'' +
-                ", equipmentSpecification='" + equipmentSpecification + '\'' +
-                ", equipmentStatus='" + equipmentStatus + '\'' +
-                ", rentalStatus='" + rentalStatus + '\'' +
-                '}';
+    public String getEquipmentTypeName() {
+        return equipmentTypeName;
+    }
+
+    public void setEquipmentTypeName(String equipmentTypeName) {
+        this.equipmentTypeName = equipmentTypeName;
+    }
+
+    public String getFactoryName() {
+        return factoryName;
+    }
+
+    public void setFactoryName(String factoryName) {
+        this.factoryName = factoryName;
     }
 }

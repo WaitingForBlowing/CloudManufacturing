@@ -67,9 +67,7 @@ public class EquipmentTypeDaoTest {
 
     @Test
     public void testInsert(){
-        EquipmentType equipmentType =new EquipmentType();
-        equipmentType.setTypeId(5);
-        equipmentType.setTypeName("机身");
+        EquipmentType equipmentType =new EquipmentType("机身");
         equipmentTypeDao.insert(equipmentType);
     }
 

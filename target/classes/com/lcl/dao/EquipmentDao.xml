@@ -12,13 +12,19 @@
     <select id="findByEquipmentTypeId" parameterType="int" resultType="Equipment">
         select * from equipment where equipmentId=#{ptId};
     </select>
+    <select id="findByInfo" parameterType="String" resultType="Equipment">
+        select * from equipment where equipmentStatus=#{info} or equipmentSpecification=#{info} or rentalStatus=#{info} or equipmentName like '%${info}%';
+    </select>
     <insert id="insert" parameterType="Equipment">
-        insert into equipment(etId, oid, fid, equipmentId, equipmentSpecification, equipmentStatus, rentalStatus) VALUES (#{etId},#{oid},#{fid},#{equipmentId},#{equipmentSpecification},#{equipmentStatus},#{rentalStatus});
+        insert into equipment(etId, fid, equipmentSpecification, equipmentStatus, rentalStatus, equipmentName) VALUES (#{etId},#{fid},#{equipmentSpecification},#{equipmentStatus},#{rentalStatus},#{equipmentName});
     </insert>
     <update id="update" parameterType="Equipment">
-        update equipment set etId=#{etId},oid=#{oid},fid=#{fid},equipmentSpecification=#{equipmentSpecification},equipmentStatus=#{equipmentStatus},rentalStatus=#{rentalStatus} where equipmentId=#{equipmentId};
+        update equipment set equipmentName=#{equipmentName},etId=#{etId},fid=#{fid},equipmentSpecification=#{equipmentSpecification},equipmentStatus=#{equipmentStatus},rentalStatus=#{rentalStatus} where equipmentId=#{equipmentId};
     </update>
     <delete id="deleteByEquipmentId" parameterType="int">
-        delete from equipment where equipmentId=#{equipmentId}
+        delete from equipment where equipmentId=#{equipmentId};
+    </delete>
+    <delete id="deleteByEquipmentName" parameterType="String">
+        delete from equipment where equipmentName=#{equipmentName};
     </delete>
 </mapper>

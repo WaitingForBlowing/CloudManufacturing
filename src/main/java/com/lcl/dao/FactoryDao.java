@@ -20,11 +20,25 @@ public interface FactoryDao {
     List<Factory> findByUid(int uid);
 
     /**
+     * 根据factoryId查询
+     * @param factoryId
+     * @return
+     */
+    Factory findByFactoryId(int factoryId);
+
+    /**
      * 根据工厂信息查询
      * @return 工厂列表
      * @param info 信息
      */
     List<Factory> findByInfo(String info);
+
+    /**
+     * 根据工厂名称查找
+     * @param factoryName
+     * @return
+     */
+    Factory findByFactoryName(String factoryName);
 
     /**
      * 更新工厂

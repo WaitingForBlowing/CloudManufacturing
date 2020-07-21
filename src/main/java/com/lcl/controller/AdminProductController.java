@@ -1,14 +1,11 @@
 package com.lcl.controller;
 
-import com.lcl.bean.Factory;
 import com.lcl.bean.Product;
 import com.lcl.bean.ProductType;
 import com.lcl.controller.temp.ProductTemp;
-import com.lcl.dao.FactoryDao;
 import com.lcl.dao.ProductDao;
 import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
-import com.mysql.cj.xdevapi.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,10 +13,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro.JMetro;
 import jfxtras.styles.jmetro.Style;
@@ -27,7 +26,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -58,7 +56,7 @@ public class AdminProductController implements Initializable {
         List<Product> productList = productDao.findAll();
         for (Product product : productList) {
             ProductType productType = productTypeDao.findByTypeId(product.getPtId());
-            list.add(new ProductTemp(product.getProductName(), product.getProductInfo(), product.getProductSpecification(), productType.getTypeName()));
+            list.add(new ProductTemp(product.getProductId(),product.getProductName(), product.getProductInfo(), product.getProductSpecification(), productType.getTypeName(),productType.getTypeId()));
         }
 
 
@@ -75,7 +73,25 @@ public class AdminProductController implements Initializable {
 
 
     public void sProduct() {
+        SqlSession session = MybatisUtil.getSession();
+        productDao = session.getMapper(ProductDao.class);
+        ObservableList<ProductTemp> list = FXCollections.observableArrayList();
+        List<Product> productList = productDao.findByInfo(searchText.getText());
+        for (Product product : productList) {
+            ProductType productType = productTypeDao.findByTypeId(product.getPtId());
+            list.add(new ProductTemp(product.getProductId(),product.getProductName(), product.getProductInfo(), product.getProductSpecification(), productType.getTypeName(),productType.getTypeId()));
+        }
 
+
+        productName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        productInfo.setCellValueFactory(new PropertyValueFactory<>("productInfo"));
+        productSpecification.setCellValueFactory(new PropertyValueFactory<>("productSpecification"));
+        productType.setCellValueFactory(new PropertyValueFactory<>("productType"));
+
+        productTable.setItems(list);
+
+        //提交事务
+        session.commit();
     }
 
     public void nProduct() throws IOException {
@@ -105,7 +121,51 @@ public class AdminProductController implements Initializable {
     }
 
     public void mProduct() {
+        productTable.setEditable(true);
 
+        SqlSession session = MybatisUtil.getSession();
+        productDao = session.getMapper(ProductDao.class);
+
+        productName.setCellFactory(TextFieldTableCell.<ProductTemp>forTableColumn());
+        productName.setOnEditCommit(
+                (TableColumn.CellEditEvent<ProductTemp, String> t) -> {
+                    ProductTemp temp = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    Product product=new Product(temp.getProductId(),temp.getPtId(),t.getNewValue(),temp.getProductInfo(),temp.getProductSpecification());
+                    System.out.println(product);
+                    productDao.update(product);
+                });
+        productInfo.setCellFactory(TextFieldTableCell.forTableColumn());
+        productInfo.setOnEditCommit(
+                (TableColumn.CellEditEvent<ProductTemp, String> t) -> {
+                    ProductTemp temp = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    Product product=new Product(temp.getProductId(),temp.getPtId(),temp.getProductName(),t.getNewValue(),temp.getProductSpecification());
+                    productDao.update(product);
+                });
+        productSpecification.setCellFactory(TextFieldTableCell.forTableColumn());
+        productSpecification.setOnEditCommit(
+                (TableColumn.CellEditEvent<ProductTemp, String> t) -> {
+                    ProductTemp temp = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    Product product=new Product(temp.getProductId(),temp.getPtId(),temp.getProductName(),temp.getProductInfo(),t.getNewValue());
+                    productDao.update(product);
+                });
+        productType.setCellFactory(TextFieldTableCell.forTableColumn());
+        productType.setOnEditCommit(
+                (TableColumn.CellEditEvent<ProductTemp, String> t) -> {
+                    ProductTemp temp = t.getTableView().getItems().get(t.getTablePosition().getRow());
+                    List<ProductType> typeList = productTypeDao.findByTypeName(t.getNewValue());
+                    if(typeList.size()==1){
+                        Product product=new Product(temp.getProductId(),typeList.get(0).getTypeId(),temp.getProductName(),temp.getProductInfo(),temp.getProductSpecification());
+                        productDao.update(product);
+                    }else{
+                        Alert alert=new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("类型名称不存在");
+                        alert.show();
+                    }
+
+                });
+
+        //提交事务
+        session.commit();
     }
 
     @Override

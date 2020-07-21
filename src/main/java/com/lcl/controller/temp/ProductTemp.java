@@ -4,16 +4,36 @@ import java.io.Serializable;
 
 public class ProductTemp implements Serializable {
 
+    private int productId;
     private String productName;
     private String productInfo;
     private String productSpecification;
     private String productType;
+    private int ptId;
 
-    public ProductTemp(String productName, String productInfo, String productSpecification, String productType) {
+    public ProductTemp(int productId, String productName, String productInfo, String productSpecification, String productType,int ptId) {
+        this.productId = productId;
         this.productName = productName;
         this.productInfo = productInfo;
         this.productSpecification = productSpecification;
         this.productType = productType;
+        this.ptId=ptId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getPtId() {
+        return ptId;
+    }
+
+    public void setPtId(int ptId) {
+        this.ptId = ptId;
     }
 
     public String getProductName() {

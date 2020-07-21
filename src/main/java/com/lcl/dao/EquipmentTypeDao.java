@@ -44,4 +44,10 @@ public interface EquipmentTypeDao {
      * @param typeId
      */
     void deleteByTypeId(int typeId);
+
+    /**
+     * 根据设备类型名称删除
+     * @param typename
+     */
+    void deleteByTypeName(String typename);
 }

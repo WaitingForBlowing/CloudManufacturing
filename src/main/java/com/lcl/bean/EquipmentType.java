@@ -7,6 +7,10 @@ public class EquipmentType implements Serializable {
     private int typeId;
     private String typeName;
 
+    public EquipmentType(String typeName) {
+        this.typeName = typeName;
+    }
+
     public int getTypeId() {
         return typeId;
     }
