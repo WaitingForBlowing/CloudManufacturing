@@ -27,11 +27,32 @@ public interface EquipmentDao {
     List<Equipment> findByEquipmentTypeId(int etId);
 
     /**
+     * 根据设备名称租用设备
+     * @param name
+     * @return
+     */
+    Equipment findByEquipmentName(String equipmentName);
+
+    /**
+     * 根据工厂id查询
+     * @param fid
+     * @return
+     */
+    List<Equipment> findByFid(int fid);
+
+    /**
      * 根据信息模糊查询
      * @param info
      * @return
      */
     List<Equipment> findByInfo(String info);
+
+    /**
+     * 附带条件的根据信息模糊查询
+     * @param info
+     * @return
+     */
+    List<Equipment> findByInfoFid(String fid,String info);
 
     /**
      * 新增设备

@@ -1,8 +1,13 @@
 package com.lcl.controller;
 
-import com.lcl.bean.*;
+import com.lcl.bean.Equipment;
+import com.lcl.bean.EquipmentType;
+import com.lcl.bean.Factory;
+import com.lcl.bean.Manager;
 import com.lcl.controller.temp.EquipmentTemp;
-import com.lcl.dao.*;
+import com.lcl.dao.EquipmentDao;
+import com.lcl.dao.EquipmentTypeDao;
+import com.lcl.dao.FactoryDao;
 import com.lcl.util.MybatisUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,17 +29,21 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AdminEquipmentController implements Initializable {
+public class MyFactoryController implements Initializable {
+
+    private Manager manager;
+    private List<Equipment> equipmentList=new ArrayList<>();
 
     private EquipmentDao equipmentDao;
     private EquipmentTypeDao equipmentTypeDao;
     private FactoryDao factoryDao;
 
     @FXML
-    TableView<EquipmentTemp> productTable;
+    TableView<EquipmentTemp> equipmentTable;
     @FXML
     TableColumn<EquipmentTemp, String> equipmentName;
     @FXML
@@ -48,14 +57,24 @@ public class AdminEquipmentController implements Initializable {
     @FXML
     TextField searchText;
 
-    public void refresh() {
+    public void init(Manager manager){
+        this.manager=manager;
+        refresh();
+    }
+
+   public void refresh() {
         SqlSession session = MybatisUtil.getSession();
         equipmentDao = session.getMapper(EquipmentDao.class);
         equipmentTypeDao = session.getMapper(EquipmentTypeDao.class);
         factoryDao = session.getMapper(FactoryDao.class);
         ObservableList<EquipmentTemp> list = FXCollections.observableArrayList();
 
-        List<Equipment> equipmentList = equipmentDao.findAll();
+        List<Factory> factoryList = factoryDao.findByUid(manager.getUserId());
+        for(Factory factory:factoryList){
+            List<Equipment> eList = equipmentDao.findByFid(factory.getFactoryId());
+            equipmentList.addAll(eList);
+        }
+
         for (Equipment equipment : equipmentList) {
             EquipmentType equipmentType = equipmentTypeDao.findByTypeId(equipment.getEtId());
             Factory factory = factoryDao.findByFactoryId(equipment.getFid());
@@ -71,18 +90,25 @@ public class AdminEquipmentController implements Initializable {
         equipmentStatus.setCellValueFactory(new PropertyValueFactory<>("equipmentStatus"));
         rentalStatus.setCellValueFactory(new PropertyValueFactory<>("rentalStatus"));
 
-        productTable.setItems(list);
+        equipmentTable.setItems(list);
 
         //提交事务
         session.commit();
     }
 
-
     public void sEquipment() {
         SqlSession session = MybatisUtil.getSession();
         equipmentDao = session.getMapper(EquipmentDao.class);
+        equipmentTypeDao = session.getMapper(EquipmentTypeDao.class);
+        factoryDao = session.getMapper(FactoryDao.class);
         ObservableList<EquipmentTemp> list = FXCollections.observableArrayList();
-        List<Equipment> equipmentList = equipmentDao.findByInfo(searchText.getText());
+
+        List<Factory> factoryList = factoryDao.findByUid(manager.getUserId());
+        List<Equipment> equipmentList = new ArrayList<>();
+        for(Factory factory:factoryList){
+            List<Equipment> eList = equipmentDao.findByInfoFid(String.valueOf(factory.getFactoryId()),searchText.getText());
+            equipmentList.addAll(eList);
+        }
         for (Equipment equipment : equipmentList) {
             EquipmentType equipmentType = equipmentTypeDao.findByTypeId(equipment.getEtId());
             Factory factory = factoryDao.findByFactoryId(equipment.getFid());
@@ -98,7 +124,7 @@ public class AdminEquipmentController implements Initializable {
         equipmentStatus.setCellValueFactory(new PropertyValueFactory<>("equipmentStatus"));
         rentalStatus.setCellValueFactory(new PropertyValueFactory<>("rentalStatus"));
 
-        productTable.setItems(list);
+        equipmentTable.setItems(list);
 
         //提交事务
         session.commit();
@@ -131,7 +157,7 @@ public class AdminEquipmentController implements Initializable {
     }
 
     public void mEquipment() {
-        productTable.setEditable(true);
+        equipmentTable.setEditable(true);
 
         SqlSession session = MybatisUtil.getSession();
         equipmentDao = session.getMapper(EquipmentDao.class);
@@ -145,19 +171,6 @@ public class AdminEquipmentController implements Initializable {
                     equipment.setFid(equipmentTemp.getFid());
                     equipment.setRentalStatus(equipmentTemp.getRentalStatus());
                     equipment.setEquipmentStatus(equipmentTemp.getEquipmentStatus());
-                    equipment.setOid(equipmentTemp.getOid());
-                    equipment.setEquipmentId(equipmentTemp.getEquipmentId());
-
-                    equipmentDao.update(equipment);
-                });
-        equipmentStatus.setCellFactory(TextFieldTableCell.forTableColumn());
-        equipmentStatus.setOnEditCommit(
-                (TableColumn.CellEditEvent<EquipmentTemp, String> t) -> {
-                    EquipmentTemp equipmentTemp = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    Equipment equipment = new Equipment(equipmentTemp.getEtid(), equipmentTemp.getEquipmentName(), equipmentTemp.getEquipmentSpecification());
-                    equipment.setFid(equipmentTemp.getFid());
-                    equipment.setRentalStatus(equipmentTemp.getRentalStatus());
-                    equipment.setEquipmentStatus(t.getNewValue());
                     equipment.setOid(equipmentTemp.getOid());
                     equipment.setEquipmentId(equipmentTemp.getEquipmentId());
 
@@ -197,26 +210,43 @@ public class AdminEquipmentController implements Initializable {
                     }
 
                 });
-        rentalStatus.setCellFactory(TextFieldTableCell.forTableColumn());
-        rentalStatus.setOnEditCommit(
-                (TableColumn.CellEditEvent<EquipmentTemp, String> t) -> {
-                    EquipmentTemp equipmentTemp = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    Equipment equipment = new Equipment(equipmentTemp.getEtid(), equipmentTemp.getEquipmentName(), equipmentTemp.getEquipmentSpecification());
-                    equipment.setFid(equipmentTemp.getFid());
-                    equipment.setRentalStatus(t.getNewValue());
-                    equipment.setEquipmentStatus(equipmentTemp.getEquipmentStatus());
-                    equipment.setOid(equipmentTemp.getOid());
-                    equipment.setEquipmentId(equipmentTemp.getEquipmentId());
-
-                    equipmentDao.update(equipment);
-                });
 
         //提交事务
         session.commit();
     }
 
+    public void onClose() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/onClose.fxml"));
+        Parent root = loader.load();
+        OnCloseController controller = loader.getController();
+        controller.init(manager);
+        Scene scene = new Scene(root, 600, 340);
+        JMetro jMetro = new JMetro(Style.LIGHT);
+        jMetro.setScene(scene);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("开机/关机");
+        stage.show();
+    }
+
+    public void rent() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/rent.fxml"));
+        Parent root = loader.load();
+        RentController controller = loader.getController();
+        controller.init(this.manager);
+        Scene scene = new Scene(root, 800, 450);
+        JMetro jMetro = new JMetro(Style.LIGHT);
+        jMetro.setScene(scene);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("租借");
+        stage.show();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        refresh();
+
     }
 }

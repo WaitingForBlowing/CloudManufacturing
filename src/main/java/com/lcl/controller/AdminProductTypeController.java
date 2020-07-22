@@ -1,8 +1,6 @@
 package com.lcl.controller;
 
-import com.lcl.bean.Factory;
 import com.lcl.bean.ProductType;
-import com.lcl.dao.FactoryDao;
 import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
 import javafx.collections.FXCollections;

@@ -12,8 +12,17 @@
     <select id="findByEquipmentTypeId" parameterType="int" resultType="Equipment">
         select * from equipment where equipmentId=#{ptId};
     </select>
+    <select id="findByFid" parameterType="int" resultType="Equipment">
+        select * from equipment where fid=#{fid};
+    </select>
     <select id="findByInfo" parameterType="String" resultType="Equipment">
         select * from equipment where equipmentStatus=#{info} or equipmentSpecification=#{info} or rentalStatus=#{info} or equipmentName like '%${info}%';
+    </select>
+    <select id="findByInfoFid" parameterType="String" resultType="Equipment">
+        select * from equipment where fid=#{arg0} and (equipmentStatus=#{arg1} or equipmentSpecification=#{arg1} or rentalStatus=#{arg1} or equipmentName like '%${arg1}%');
+    </select>
+    <select id="findByEquipmentName" resultType="Equipment" parameterType="String">
+        select * from equipment where equipmentName=#{equipmentName};
     </select>
     <insert id="insert" parameterType="Equipment">
         insert into equipment(etId, fid, equipmentSpecification, equipmentStatus, rentalStatus, equipmentName) VALUES (#{etId},#{fid},#{equipmentSpecification},#{equipmentStatus},#{rentalStatus},#{equipmentName});

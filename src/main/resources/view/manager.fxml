@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <AnchorPane fx:id="background" prefHeight="680.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcl.controller.ManagerController">
     <children>
@@ -19,7 +19,15 @@
                         <Insets left="23.0" />
                     </VBox.margin>
                 </Label>
-                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="我的工厂">
+            <Label fx:id="info" alignment="CENTER" prefHeight="24.0" prefWidth="132.0" text="工厂名称：">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+                <Button mnemonicParsing="false" onMouseClicked="#myFactory" prefHeight="50.0" prefWidth="130.0" text="我的工厂">
                     <VBox.margin>
                         <Insets top="40.0" />
                     </VBox.margin>
@@ -27,7 +35,7 @@
                         <Font size="20.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="130.0" text="订单管理">
+                <Button mnemonicParsing="false" onMouseClicked="#orderAdmin" prefHeight="50.0" prefWidth="130.0" text="订单管理">
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>

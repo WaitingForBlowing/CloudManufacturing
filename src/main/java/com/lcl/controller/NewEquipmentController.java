@@ -33,9 +33,14 @@ public class NewEquipmentController implements Initializable {
         if(factory!=null){
             if(equipmentTypeList.size()==1){
                 Equipment equipment=new Equipment(equipmentTypeList.get(0).getTypeId(),equipmentName.getText(),equipmentSpecification.getText());
-                equipment.setEquipmentStatus("闲置");
-                equipment.setRentalStatus("工厂私有");
+                equipment.setEquipmentStatus("关机");
                 equipment.setFid(factory.getFactoryId());
+                if(factory.getFactoryId()==1){
+                    equipment.setRentalStatus("工厂私有");
+                }else{
+                    equipment.setRentalStatus("个人私有");
+                }
+
                 equipmentDao.insert(equipment);
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("添加成功");

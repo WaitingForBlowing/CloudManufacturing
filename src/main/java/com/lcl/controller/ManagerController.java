@@ -2,11 +2,26 @@ package com.lcl.controller;
 
 import com.lcl.App.App;
 import com.lcl.bean.Manager;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
-public class ManagerController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ManagerController implements Initializable {
 
     private App app;
     Manager manager=null;
+
+    @FXML
+    Label info;
+    @FXML
+    AnchorPane table;
 
     public void setStage(App app) {
         this.app = app;
@@ -14,9 +29,31 @@ public class ManagerController {
 
     public void init(Manager manager){
         this.manager=manager;
+        info.setText("你好，"+manager.getName());
     }
 
     public void closeStage(){
         app.close();
+    }
+
+    public void myFactory() throws IOException {
+        table.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/myFactory.fxml"));
+        Parent root = loader.load();
+        MyFactoryController controller = loader.getController();
+        controller.init(manager);
+        table.getChildren().add(root);
+    }
+
+    public void orderAdmin() throws IOException {
+        table.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/adminUser.fxml"));
+        Parent root = loader.load();
+        table.getChildren().add(root);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }

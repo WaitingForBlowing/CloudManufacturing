@@ -70,7 +70,7 @@
                         <Insets top="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="factoryName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="242.0" promptText="可为空值">
+                  <TextField fx:id="factoryName" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="242.0" promptText="云工厂管理员必填，超级管理员可为空">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>

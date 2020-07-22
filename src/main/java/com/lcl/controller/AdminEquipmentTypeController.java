@@ -1,9 +1,7 @@
 package com.lcl.controller;
 
 import com.lcl.bean.EquipmentType;
-import com.lcl.bean.ProductType;
 import com.lcl.dao.EquipmentTypeDao;
-import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
