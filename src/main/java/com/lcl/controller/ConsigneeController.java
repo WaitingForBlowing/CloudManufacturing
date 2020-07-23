@@ -2,6 +2,7 @@ package com.lcl.controller;
 
 import com.lcl.App.App;
 import com.lcl.bean.Consignee;
+import com.lcl.controller.ConsigneeOrderController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +34,8 @@ public class ConsigneeController {
         table.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/consigneeOrder.fxml"));
         Parent root = loader.load();
+        ConsigneeOrderController controller = loader.getController();
+        controller.init(consignee);
         table.getChildren().add(root);
     }
 

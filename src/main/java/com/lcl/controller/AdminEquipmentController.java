@@ -2,8 +2,10 @@ package com.lcl.controller;
 
 import com.lcl.bean.*;
 import com.lcl.controller.temp.EquipmentTemp;
+import com.lcl.controller.temp.OrderTemp;
 import com.lcl.dao.*;
 import com.lcl.util.MybatisUtil;
+import com.mysql.cj.xdevapi.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -117,17 +119,11 @@ public class AdminEquipmentController implements Initializable {
         stage.show();
     }
 
-    public void rEquipment() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeEquipment.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除设备");
-        stage.show();
+    public void rEquipment()  {
+        EquipmentTemp selectedItem = productTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        equipmentDao.deleteByEquipmentId(selectedItem.getEquipmentId());
+        refresh();
     }
 
     public void mEquipment() {

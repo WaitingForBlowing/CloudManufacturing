@@ -1,6 +1,8 @@
 package com.lcl.controller;
 
 import com.lcl.bean.ProductType;
+import com.lcl.controller.temp.OrderTemp;
+import com.lcl.dao.OrderDao;
 import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
 import javafx.collections.FXCollections;
@@ -69,16 +71,11 @@ public class AdminProductTypeController implements Initializable {
     }
 
     public void rType() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeProductType.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除工厂");
-        stage.show();
+        ProductType selectedItem = typeTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        productTypeDao = session.getMapper(ProductTypeDao.class);
+        productTypeDao.deleteByTypeId(selectedItem.getTypeId());
+        refresh();
     }
 
     public void mType() {

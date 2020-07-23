@@ -13,6 +13,25 @@ public class Order implements Serializable {
     private int consigneeId;
     private String orderStatus;
 
+    public Order(int pid, int productAmount, Date accomplishDeadline, Date tenderDeadline, int consigneeId, String orderStatus) {
+        this.pid = pid;
+        this.productAmount = productAmount;
+        this.accomplishDeadline = accomplishDeadline;
+        this.tenderDeadline = tenderDeadline;
+        this.consigneeId = consigneeId;
+        this.orderStatus = orderStatus;
+    }
+
+    public Order(int orderId, int pid, int productAmount, Date accomplishDeadline, Date tenderDeadline, int consigneeId, String orderStatus) {
+        this.orderId = orderId;
+        this.pid = pid;
+        this.productAmount = productAmount;
+        this.accomplishDeadline = accomplishDeadline;
+        this.tenderDeadline = tenderDeadline;
+        this.consigneeId = consigneeId;
+        this.orderStatus = orderStatus;
+    }
+
     public int getOrderId() {
         return orderId;
     }

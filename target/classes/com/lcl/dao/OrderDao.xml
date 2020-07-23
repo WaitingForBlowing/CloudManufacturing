@@ -9,11 +9,14 @@
     <select id="findByOrderId" resultType="Order" parameterType="int">
         select * from `order` where orderId=#{orderId};
     </select>
+    <select id="findByConsigneeId" parameterType="int" resultType="Order">
+        select * from `order` where consigneeId=#{consigneeId};
+    </select>
     <insert id="insert" parameterType="Order">
-        insert into `order`(orderId, pId, productAmount, acomplishDeadline, tenderDeadline, consigneeId) VALUES (#{orderId},#{pid},#{productAmount},#{acomplishDeadline},#{tenderDeadline},#{consigneeId});
+        insert into `order`( pId, productAmount, accomplishDeadline, tenderDeadline, consigneeId,orderStatus) VALUES (#{pid},#{productAmount},#{accomplishDeadline},#{tenderDeadline},#{consigneeId},#{orderStatus});
     </insert>
     <update id="update" parameterType="Order">
-        update `order` set orderId=#{orderId},pId=#{pid},productAmount=#{productAmount},acomplishDeadline=#{acomplishDeadline},tenderDeadline=#{tenderDeadline},consigneeId=#{consigneeId} where orderId=#{orderId};
+        update `order` set orderId=#{orderId},pId=#{pid},productAmount=#{productAmount},accomplishDeadline=#{accomplishDeadline},tenderDeadline=#{tenderDeadline},consigneeId=#{consigneeId},orderStatus=#{orderStatus} where orderId=#{orderId};
     </update>
     <delete id="deleteByOrderId" parameterType="Order">
         delete from `order` where orderId=#{orderId};

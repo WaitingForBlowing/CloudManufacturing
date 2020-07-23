@@ -20,6 +20,13 @@ public interface OrderDao {
     Order findByOrderId(int orderId);
 
     /**
+     * 根据经销商id查询
+     * @param consigneeId
+     * @return
+     */
+    List<Order> findByConsigneeId(int consigneeId);
+
+    /**
      * 新增订单
      * @param order 订单
      */

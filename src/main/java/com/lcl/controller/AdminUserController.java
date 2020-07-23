@@ -2,10 +2,13 @@ package com.lcl.controller;
 
 import com.lcl.bean.Consignee;
 import com.lcl.bean.Manager;
+import com.lcl.bean.ProductType;
 import com.lcl.bean.User;
 import com.lcl.dao.ConsigneeDao;
 import com.lcl.dao.ManagerDao;
+import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
+import com.mysql.cj.xdevapi.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -86,17 +89,14 @@ public class AdminUserController implements Initializable {
         stage.show();
     }
 
-    public void rUser() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeUser.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除用户");
-        stage.show();
+    public void rUser()  {
+        User selectedItem = userTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        managerDao = session.getMapper(ManagerDao.class);
+        consigneeDao=session.getMapper(ConsigneeDao.class);
+        managerDao.deleteByAccount(selectedItem.getAccount());
+        consigneeDao.deleteByAccount(selectedItem.getAccount());
+        refresh();
     }
 
     public void mUser() {

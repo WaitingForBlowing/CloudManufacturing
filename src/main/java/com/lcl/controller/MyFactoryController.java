@@ -143,17 +143,11 @@ public class MyFactoryController implements Initializable {
         stage.show();
     }
 
-    public void rEquipment() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeEquipment.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除设备");
-        stage.show();
+    public void rEquipment()  {
+        EquipmentTemp selectedItem = equipmentTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        equipmentDao.deleteByEquipmentId(selectedItem.getEquipmentId());
+        refresh();
     }
 
     public void mEquipment() {
@@ -216,18 +210,22 @@ public class MyFactoryController implements Initializable {
     }
 
     public void onClose() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/onClose.fxml"));
-        Parent root = loader.load();
-        OnCloseController controller = loader.getController();
-        controller.init(manager);
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("开机/关机");
-        stage.show();
+        EquipmentTemp selectedItem = equipmentTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        Equipment equipment=new Equipment(selectedItem.getEtid(),selectedItem.getEquipmentName(),selectedItem.getEquipmentSpecification());
+        equipment.setFid(selectedItem.getFid());
+        equipment.setOid(selectedItem.getOid());
+        equipment.setEquipmentId(selectedItem.getEquipmentId());
+        equipment.setRentalStatus(selectedItem.getRentalStatus());
+        if(selectedItem.getEquipmentStatus().equals("闲置")){
+            equipment.setEquipmentStatus("关机");
+        }else if(selectedItem.getEquipmentStatus().equals("关机")){
+            equipment.setEquipmentStatus("闲置");
+        }
+
+        equipmentDao.update(equipment);
+        session.commit();
+        refresh();
     }
 
     public void rent() throws IOException {

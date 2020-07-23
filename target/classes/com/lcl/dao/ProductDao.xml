@@ -15,6 +15,9 @@
     <select id="findByInfo" parameterType="String" resultType="Product">
         select * from product where productId=#{info} or ptId=#{info} or productName=#{info} or productInfo like '%${info}%';
     </select>
+    <select id="findByProductName" resultType="Product" parameterType="String">
+        select * from product where productName=#{productName};
+    </select>
     <insert id="insert" parameterType="Product">
         insert into product(productId, ptId, productName, productInfo, productSpecification) VALUES (#{productId},#{ptId},#{productName},#{productInfo},#{productSpecification});
     </insert>

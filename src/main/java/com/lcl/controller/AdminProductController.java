@@ -2,7 +2,9 @@ package com.lcl.controller;
 
 import com.lcl.bean.Product;
 import com.lcl.bean.ProductType;
+import com.lcl.controller.temp.OrderTemp;
 import com.lcl.controller.temp.ProductTemp;
+import com.lcl.dao.OrderDao;
 import com.lcl.dao.ProductDao;
 import com.lcl.dao.ProductTypeDao;
 import com.lcl.util.MybatisUtil;
@@ -108,16 +110,11 @@ public class AdminProductController implements Initializable {
     }
 
     public void rProduct() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeProduct.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除产品");
-        stage.show();
+        ProductTemp selectedItem = productTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        productDao = session.getMapper(ProductDao.class);
+        productDao.deleteByProductId(selectedItem.getProductId());
+        refresh();
     }
 
     public void mProduct() {

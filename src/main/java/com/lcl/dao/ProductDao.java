@@ -34,6 +34,13 @@ public interface ProductDao {
     List<Product> findByInfo(String info);
 
     /**
+     * 根据产品名称查询
+     * @param productName
+     * @return
+     */
+    Product findByProductName(String productName);
+
+    /**
      * 新增产品
      * @param product 产品
      */

@@ -42,6 +42,7 @@ public class NewEquipmentController implements Initializable {
                 }
 
                 equipmentDao.insert(equipment);
+                session.commit();
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("添加成功");
                 alert.show();
@@ -56,6 +57,7 @@ public class NewEquipmentController implements Initializable {
                 equipment.setEquipmentStatus("闲置");
                 equipment.setRentalStatus("工厂私有");
                 equipmentDao.insert(equipment);
+                session.commit();
                 Alert alert=new Alert(Alert.AlertType.INFORMATION);
                 alert.setContentText("添加成功,未设置所属工厂或工厂名称有误");
                 alert.show();

@@ -1,8 +1,11 @@
 package com.lcl.controller;
 
 import com.lcl.bean.Factory;
+import com.lcl.controller.temp.OrderTemp;
 import com.lcl.dao.FactoryDao;
+import com.lcl.dao.OrderDao;
 import com.lcl.util.MybatisUtil;
+import com.mysql.cj.xdevapi.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -71,17 +74,12 @@ public class AdminFactoryController implements Initializable {
         stage.show();
     }
 
-    public void rFactory() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/removeFactory.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 600, 340);
-        JMetro jMetro = new JMetro(Style.LIGHT);
-        jMetro.setScene(scene);
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
-        stage.setScene(scene);
-        stage.setTitle("删除工厂");
-        stage.show();
+    public void rFactory() {
+        Factory selectedItem = factoryTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        factoryDao = session.getMapper(FactoryDao.class);
+        factoryDao.deleteByFactoryName(selectedItem.getFactoryName());
+        refresh();
     }
 
     public void mFactory() {
