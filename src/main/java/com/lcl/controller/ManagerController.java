@@ -47,8 +47,10 @@ public class ManagerController implements Initializable {
 
     public void orderAdmin() throws IOException {
         table.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/adminUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/managerOrder.fxml"));
         Parent root = loader.load();
+        ManagerOrderController controller = loader.getController();
+        controller.init(manager);
         table.getChildren().add(root);
     }
 

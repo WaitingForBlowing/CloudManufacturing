@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="499.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcl.controller.ConsigneeOrderController">
+<AnchorPane prefHeight="499.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lcl.controller.ManagerOrderController">
    <children>
       <GridPane layoutX="8.0" prefHeight="487.0" prefWidth="944.0">
         <columnConstraints>
@@ -22,7 +22,7 @@
           <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="我的订单">
+            <Label text="已发布订单">
                <font>
                   <Font size="20.0" />
                </font>
@@ -40,34 +40,14 @@
             <Button mnemonicParsing="false" onMouseClicked="#sOrder" text="搜索" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#nOrder" prefHeight="36.0" prefWidth="84.0" text="新建订单">
+                  <Button mnemonicParsing="false" onMouseClicked="#tender" prefHeight="36.0" prefWidth="84.0" text="投标">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#rOrder" prefHeight="36.0" prefWidth="84.0" text="删除订单">
+                  <Button mnemonicParsing="false" onMouseClicked="#accomplish" prefHeight="36.0" prefWidth="84.0" text="完成订单">
                      <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button maxWidth="84.0" minWidth="84.0" mnemonicParsing="false" onMouseClicked="#mOrder" prefHeight="36.0" prefWidth="84.0" text="修改订单">
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#publishOrder" prefHeight="36.0" prefWidth="84.0" text="发布订单">
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#orderInfo" prefHeight="36.0" prefWidth="84.0" text="投标详情">
-                     <HBox.margin>
-                        <Insets top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#takeOver" prefHeight="36.0" prefWidth="84.0" text="收货">
-                     <HBox.margin>
-                        <Insets top="5.0" />
+                        <Insets left="50.0" top="5.0" />
                      </HBox.margin>
                   </Button>
                </children>

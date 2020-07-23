@@ -226,8 +226,52 @@ public class ConsigneeOrderController implements Initializable {
                 });
     }
 
-    public void dOrder() {
+    public void publishOrder() {
+        OrderTemp selectedItem = orderTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        if(selectedItem.getOrderStatus().equals("未发布")){
+            orderDao = session.getMapper(OrderDao.class);
+            Order order = orderDao.findByOrderId(selectedItem.getOrderId());
+            order.setOrderStatus("已发布");
+            orderDao.update(order);
+        }else{
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("只能发布状态为未发布的订单！");
+            alert.show();
+        }
+        refresh();
+    }
 
+    public void orderInfo() throws IOException {
+        OrderTemp selectedItem = orderTable.getSelectionModel().getSelectedItem();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/orderInfo.fxml"));
+        Parent root = loader.load();
+        OrderInfoController controller = loader.getController();
+        controller.init(selectedItem);
+        Scene scene = new Scene(root, 1000, 600);
+        JMetro jMetro = new JMetro(Style.LIGHT);
+        jMetro.setScene(scene);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("竞标详情");
+        stage.show();
+    }
+
+    public void takeOver(){
+        OrderTemp selectedItem = orderTable.getSelectionModel().getSelectedItem();
+        SqlSession session = MybatisUtil.getSession();
+        if(selectedItem.getOrderStatus().equals("已发货")){
+            orderDao = session.getMapper(OrderDao.class);
+            Order order = orderDao.findByOrderId(selectedItem.getOrderId());
+            order.setOrderStatus("已完成");
+            orderDao.update(order);
+        }else{
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("只能收取状态为已收货的订单！");
+            alert.show();
+        }
+        refresh();
     }
 
     @Override

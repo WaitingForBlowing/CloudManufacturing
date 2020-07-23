@@ -14,9 +14,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.Style;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -80,11 +84,30 @@ public class LoginController implements Initializable {
 
     }
 
-    public void findPassword(){
-            }
+    public void findPassword() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/forgetPassword.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 600, 340);
+        JMetro jMetro = new JMetro(Style.LIGHT);
+        jMetro.setScene(scene);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("注册");
+        stage.show();
+    }
 
-    public void signUp(){
-
+    public void signUp() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("view/newUser.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 600, 340);
+        JMetro jMetro = new JMetro(Style.LIGHT);
+        jMetro.setScene(scene);
+        scene.getStylesheets().add(getClass().getClassLoader().getResource("style/style.css").toExternalForm());
+        stage.setScene(scene);
+        stage.setTitle("注册");
+        stage.show();
     }
 
     public void back() throws IOException {

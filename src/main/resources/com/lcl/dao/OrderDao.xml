@@ -6,6 +6,9 @@
     <select id="findAll" resultType="Order">
         select * from `order`;
     </select>
+    <select id="findAllPublishedOrder" resultType="Order">
+        select * from `order` where orderStatus!='未发布';
+    </select>
     <select id="findByOrderId" resultType="Order" parameterType="int">
         select * from `order` where orderId=#{orderId};
     </select>

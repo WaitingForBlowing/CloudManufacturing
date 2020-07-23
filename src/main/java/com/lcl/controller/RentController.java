@@ -82,6 +82,8 @@ public class RentController implements Initializable {
 
     public void rentEquipment(){
         try {
+            SqlSession session = MybatisUtil.getSession();
+            equipmentDao = session.getMapper(EquipmentDao.class);
             Equipment equipment = equipmentDao.findByEquipmentName(rentText.getText());
             equipment.setRentalStatus("工厂租借");
             List<Factory> factoryList = factoryDao.findByUid(manager.getUserId());
@@ -90,6 +92,7 @@ public class RentController implements Initializable {
                 equipment.setFid(factory.getFactoryId());
             }
             equipmentDao.update(equipment);
+            session.commit();
             Alert alert=new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("租用成功");
             alert.show();

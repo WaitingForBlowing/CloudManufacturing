@@ -55,17 +55,17 @@
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#dOrder" prefHeight="36.0" prefWidth="84.0" text="发布订单">
+                  <Button mnemonicParsing="false" onMouseClicked="#publishOrder" prefHeight="36.0" prefWidth="84.0" text="发布订单">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#dOrder" prefHeight="36.0" prefWidth="84.0" text="投标详情">
+                  <Button mnemonicParsing="false" onMouseClicked="#orderInfo" prefHeight="36.0" prefWidth="84.0" text="投标详情">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#dOrder" prefHeight="36.0" prefWidth="84.0" text="收货">
+                  <Button mnemonicParsing="false" onMouseClicked="#takeOver" prefHeight="36.0" prefWidth="84.0" text="收货">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>

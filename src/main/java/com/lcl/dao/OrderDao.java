@@ -27,6 +27,12 @@ public interface OrderDao {
     List<Order> findByConsigneeId(int consigneeId);
 
     /**
+     * 查询所有未发布的订单
+     * @return
+     */
+    List<Order> findAllPublishedOrder();
+
+    /**
      * 新增订单
      * @param order 订单
      */

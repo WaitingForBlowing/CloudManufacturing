@@ -105,9 +105,10 @@ public class AdminUserController implements Initializable {
         name.setOnEditCommit(
                 (TableColumn.CellEditEvent<User, String> t) -> {
                     User user = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    if(user instanceof Manager){
+                    if(user.getType().equals("工厂管理员")){
+                        user.setName(t.getNewValue());
                         managerDao.update((Manager) user);
-                    }else if(user instanceof Consignee){
+                    }else if(user.getType().equals("经销商")){
                         consigneeDao.update((Consignee) user);
                     }
 
@@ -116,20 +117,10 @@ public class AdminUserController implements Initializable {
         account.setOnEditCommit(
                 (TableColumn.CellEditEvent<User, String> t) -> {
                     User user = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    if(user instanceof Manager){
+                    if(user.getType().equals("工厂管理员")){
+                        user.setAccount(t.getNewValue());
                         managerDao.update((Manager) user);
-                    }else if(user instanceof Consignee){
-                        consigneeDao.update((Consignee) user);
-                    }
-
-                });
-        type.setCellFactory(TextFieldTableCell.forTableColumn());
-        type.setOnEditCommit(
-                (TableColumn.CellEditEvent<User, String> t) -> {
-                    User user = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    if(user instanceof Manager){
-                        managerDao.update((Manager) user);
-                    }else if(user instanceof Consignee){
+                    }else if(user.getType().equals("经销商")){
                         consigneeDao.update((Consignee) user);
                     }
 
@@ -138,9 +129,10 @@ public class AdminUserController implements Initializable {
         email.setOnEditCommit(
                 (TableColumn.CellEditEvent<User, String> t) -> {
                     User user = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    if(user instanceof Manager){
+                    if(user.getType().equals("工厂管理员")){
+                        user.setEmail(t.getNewValue());
                         managerDao.update((Manager) user);
-                    }else if(user instanceof Consignee){
+                    }else if(user.getType().equals("经销商")){
                         consigneeDao.update((Consignee) user);
                     }
 
@@ -149,9 +141,10 @@ public class AdminUserController implements Initializable {
         tel.setOnEditCommit(
                 (TableColumn.CellEditEvent<User, String> t) -> {
                     User user = t.getTableView().getItems().get(t.getTablePosition().getRow());
-                    if(user instanceof Manager){
+                    if(user.getType().equals("工厂管理员")){
+                        user.setTel(t.getNewValue());
                         managerDao.update((Manager) user);
-                    }else if(user instanceof Consignee){
+                    }else if(user.getType().equals("经销商")){
                         consigneeDao.update((Consignee) user);
                     }
 

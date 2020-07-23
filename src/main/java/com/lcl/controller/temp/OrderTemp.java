@@ -15,6 +15,17 @@ public class OrderTemp {
     private String consigneeName;
     private String consigneeTel;
 
+    public OrderTemp(int orderId, int pid, String productAmount, String accomplishDeadline, String tenderDeadline, int consigneeId, String orderStatus, String productName) {
+        this.orderId = orderId;
+        this.pid = pid;
+        this.productAmount = productAmount;
+        this.accomplishDeadline = accomplishDeadline;
+        this.tenderDeadline = tenderDeadline;
+        this.consigneeId = consigneeId;
+        this.orderStatus = orderStatus;
+        this.productName = productName;
+    }
+
     public OrderTemp(int orderId, int pid, String productAmount, String accomplishDeadline, String tenderDeadline, int consigneeId, String orderStatus, String productName, String consigneeName, String consigneeTel) {
         this.orderId = orderId;
         this.pid = pid;
