@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96721604-3fe4-4895-a2da-7f26cc0e4200" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lcl/util/EmailUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lcl/util/EmailUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lcl/util/EmailUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lcl/util/EmailUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lcl/util/EmailUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lcl/util/EmailUtil.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Daily Software\Maven\apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Daily Software\Maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ekOexFiWtyNMbuZeOrqb9c3b84" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\view" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\com\lcl" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\style" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\image" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lcl.util" />
+      <recent name="com.lcl.test" />
+      <recent name="com.lcl.controller" />
+      <recent name="com.lcl.controller.temp" />
+      <recent name="com.lcl.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\view" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\image" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources\com\lcl\dao" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing" />
+      <recent name="C:\Users\26976\Desktop\CloudManufacturing\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lcl.App.App" />
+      <module name="CloudManufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lcl.App.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EquipmentTypeDaoTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CloudManufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lcl.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lcl.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lcl.test.EquipmentTypeDaoTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EquipmentTypeDaoTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CloudManufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lcl.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lcl.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lcl.test.EquipmentTypeDaoTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderRecordDaoTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CloudManufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lcl.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lcl.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lcl.test.OrderRecordDaoTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductTypeDaoTest.testFindByTypeName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CloudManufacturing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lcl.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lcl.test" />
+      <option name="MAIN_CLASS_NAME" value="com.lcl.test.ProductTypeDaoTest" />
+      <option name="METHOD_NAME" value="testFindByTypeName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.OrderRecordDaoTest.testInsert" />
+        <item itemvalue="JUnit.ProductTypeDaoTest.testFindByTypeName" />
+        <item itemvalue="JUnit.EquipmentTypeDaoTest.testUpdate" />
+        <item itemvalue="JUnit.EquipmentTypeDaoTest.testInsert" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96721604-3fe4-4895-a2da-7f26cc0e4200" name="Default Changelist" comment="" />
+      <created>1594862222562</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594862222562</updated>
+      <workItem from="1594862234453" duration="2113000" />
+      <workItem from="1594864375482" duration="55138000" />
+      <workItem from="1595124201677" duration="1899000" />
+      <workItem from="1595126629645" duration="1768000" />
+      <workItem from="1595128534818" duration="65141000" />
+      <workItem from="1595320891975" duration="66288000" />
+      <workItem from="1595493177272" duration="328000" />
+      <workItem from="1595493866992" duration="15893000" />
+      <workItem from="1595533893326" duration="3540000" />
+      <workItem from="1595836159998" duration="3824000" />
+      <workItem from="1595940063053" duration="19000" />
+      <workItem from="1599060637222" duration="2573000" />
+      <workItem from="1605852054948" duration="146000" />
+      <workItem from="1606019466859" duration="564000" />
+      <workItem from="1606020043841" duration="160000" />
+    </task>
+    <task id="LOCAL-00001" summary="Basic structure of the project">
+      <created>1594865617560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594865617560</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Basic structure of the project">
+      <created>1594892856257</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1594892856257</updated>
+    </task>
+    <task id="LOCAL-00003" summary="dao interface &#10;sql table cascade">
+      <created>1594993867734</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594993867734</updated>
+    </task>
+    <task id="LOCAL-00004" summary="dao interface accomplish">
+      <created>1595068461343</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1595068461343</updated>
+    </task>
+    <task id="LOCAL-00005" summary="administrator adminUser adminFactory adminProductType adminProduct">
+      <created>1595318373111</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1595318373113</updated>
+    </task>
+    <task id="LOCAL-00006" summary="all administrator">
+      <created>1595350742604</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595350742604</updated>
+    </task>
+    <task id="LOCAL-00007" summary="some manager and consignee">
+      <created>1595428730060</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595428730060</updated>
+    </task>
+    <task id="LOCAL-00008" summary="some orderAdmin">
+      <created>1595497545816</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1595497545816</updated>
+    </task>
+    <task id="LOCAL-00009" summary="all accomplish">
+      <created>1595533943865</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1595533943865</updated>
+    </task>
+    <task id="LOCAL-00010" summary="test.sql update">
+      <created>1595836202606</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1595836202606</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basic structure of the project" />
+    <MESSAGE value="dao interface &#10;sql table cascade" />
+    <MESSAGE value="dao interface accomplish" />
+    <MESSAGE value="administrator adminUser adminFactory adminProductType adminProduct" />
+    <MESSAGE value="all administrator" />
+    <MESSAGE value="some manager and consignee" />
+    <MESSAGE value="some orderAdmin" />
+    <MESSAGE value="all accomplish" />
+    <MESSAGE value="test.sql update" />
+    <option name="LAST_COMMIT_MESSAGE" value="test.sql update" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1606019986274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606019986274" />
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom" timestamp="1606020204178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606020204178" />
+    <state width="1877" height="274" key="GridCell.Tab.0.center" timestamp="1606020204178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606020204178" />
+    <state width="1877" height="274" key="GridCell.Tab.0.left" timestamp="1606020204178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606020204178" />
+    <state width="1877" height="274" key="GridCell.Tab.0.right" timestamp="1606020204178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606020204178" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1606020061421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1606020061421" />
+    <state x="24" y="0" key="new project wizard" timestamp="1599060730852">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="24" y="0" key="new project wizard/0.0.1280.689@0.0.1280.689" timestamp="1599060730852" />
+  </component>
+</project>
