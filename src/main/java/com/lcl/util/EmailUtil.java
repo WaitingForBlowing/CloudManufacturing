@@ -19,8 +19,16 @@ public class EmailUtil {
         String match = "^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$";
         if (mail.matches(match)) {
             String smtp = "smtp.qq.com";
-            final String username = "2697666955@qq.com";
-            final String password = "rfvghaocfbjydhbj";
+            /**
+             * input your username and password
+             * input your username and password
+             * input your username and password
+             * input your username and password
+             * input your username and password
+             * input your username and password
+             */
+            final String username = "";
+            final String password = "";
             // 连接到SMTP服务器587端口:
             Properties props = new Properties();
             props.put("mail.smtp.host", smtp); // SMTP主机名
